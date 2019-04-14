@@ -33,14 +33,11 @@
  *
  */
 function* get99BottlesOfBeer() {
-    for (var i = 99; i > 2; i--)
+    for (var i = 99; i > 1; i--)
     {
         yield `${i} bottles of beer on the wall, ${i} bottles of beer.`;
         yield `Take one down and pass it around, ${i - 1} bottles of beer on the wall.`;
     }
-
-    yield `2 bottles of beer on the wall, 2 bottles of beer.`;
-    yield `Take one down and pass it around, 1 bottle of beer on the wall.`;
 
     yield "1 bottle of beer on the wall, 1 bottle of beer.";
     yield "Take one down and pass it around, no more bottles of beer on the wall.";     
@@ -60,8 +57,6 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-    // Основным методом генератора является next(). 
-    // При вызове он возобновляет выполнение кода до ближайшего ключевого слова yield.
     yield 0;
     yield 1;
 
@@ -151,7 +146,6 @@ function* breadthTraversalTree(root) {
    let queue = [root];
 
    while (queue.length != 0) {
-       // Метод shift() удаляет первый элемент из массива и возвращает его значение.
        let node = queue.shift();
        yield node;
 
@@ -184,29 +178,6 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    /*
-    const iterables = [source1(), source2()];
-    let next;
-    // Create iterators, with "result" property to hold most recent result.
-    const iterators = iterables.map(iterable => {
-      const iterator = iterable[Symbol.iterator]();
-      iterator.result = iterator.next();
-      return iterator;
-    });
-  
-    // Find the next iterator whose value to use.
-    function findNext() {
-      return iterators
-        .filter(iterator => !iterator.result.done)
-        .reduce((ret, cur) => !ret || cur.result.value < ret.result.value ? cur : ret, null);
-    }
-  
-    // This is the heart of the algorithm.
-    while (next = findNext()) {
-        yield next.result.value;
-        next.result = next.next();
-    }
-    */
    throw new Error('Not implemented');
 }
 
