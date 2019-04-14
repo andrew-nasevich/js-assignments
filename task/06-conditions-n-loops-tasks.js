@@ -78,8 +78,10 @@ function getFactorial(n) {
  */
 function getSumBetweenNumbers(n1, n2) {
     let sum = 0;
-    for(let i = n1; i <= n2; i++)
-    	sum += i;
+    for (let i = n1; i <= n2; i++)
+    {
+        sum += i;
+    };
     return sum;
 }
 
@@ -189,12 +191,29 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    let arr = str.split('');
-    for(let i = 0; i < arr.length; i++){
-    	if(arr.indexOf(arr[i]) == arr.lastIndexOf(arr[i]))
-    		return arr[i];
+    let charArr = [];
+    let countArr = [];
+    let isExst;
+    for (let i = 0; i < str.length; i++)
+    {
+        isExst = false;
+        if (charArr.indexOf(str[i]) != -1)
+        {
+            isExst = true;
+            countArr[charArr.indexOf(str[i])] += 1;
+        }
+        if (!isExst)
+        {
+            charArr.push(str[i]);
+            countArr.push(1);
+        }
     }
-	return null;
+    for (let i = 0; i<countArr.length; i++)
+    {
+        if (countArr[i] == 1)
+            return charArr[i];
+    }
+    return null;
 }
 
 
@@ -239,7 +258,9 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
         tempStr += a + ', ' + b + tempEndStr;
     }
     return tempStr;
+
 }
+
 
 /**
  * Reverse the specified string (put all chars in reverse order)
@@ -361,7 +382,7 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true 
  */
 function isBracketsBalanced(str) {
-     let pair = {
+    let pair = {
         '>': '<',
         ')': '(',
         ']': '[',
@@ -416,7 +437,7 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-     let ms_in = {
+    let ms_in = {
         s:  1000,
         m:  60000,
         h:  3600000,
@@ -430,26 +451,35 @@ function timespanToHumanString(startDate, endDate) {
     let t = endDate.getTime() - startDate.getTime();
     if (t >= 546 * ms_in.d)
         return rnd(t/ms_in.y) + ' years ago';
-    else if(345 * ms_in.d < t && t <= 545  * ms_in.d)
-        return 'a year ago';
-    else if(45 * ms_in.d < t && t <= 345 * ms_in.d)
-    	return rnd(t/ms_in.mn) + ' months ago';
-    else if(25 * ms_in.d < t && t <= 45 * ms_in.d)
-        return 'a month ago';
-    else if(36 * ms_in.h < t && t <= 25 * ms_in.d)
-        return rnd(t/ms_in.d) + ' days ago';
-    else if(22 * ms_in.h < t && t <= 36 * ms_in.h)
-        return 'a day ago';
-    else if(90 * ms_in.m < t && t <= 22 * ms_in.h)
-        return rnd(t/ms_in.h) + ' hours ago';
-    else if(45 * ms_in.m < t && t <= 90 * ms_in.m)
-        return 'an hour ago';
-    else if(90 * ms_in.s < t && t <= 45 * ms_in.m)
-        return rnd(t/ms_in.m) + ' minutes ago';
-    else if(45 * ms_in.s < t && t <= 90 * ms_in.s)
-        return 'a minute ago';
-    else
-        return 'a few seconds ago';
+    else 
+        if(345 * ms_in.d < t && t <= 545  * ms_in.d)
+            return 'a year ago';
+        else 
+            if(45 * ms_in.d < t && t <= 345 * ms_in.d)
+                return rnd(t/ms_in.mn) + ' months ago';
+            else 
+                if(25 * ms_in.d < t && t <= 45 * ms_in.d)
+                    return 'a month ago';
+                else 
+                    if(36 * ms_in.h < t && t <= 25 * ms_in.d)
+                        return rnd(t/ms_in.d) + ' days ago';
+                    else 
+                        if(22 * ms_in.h < t && t <= 36 * ms_in.h)
+                            return 'a day ago';
+                        else 
+                            if(90 * ms_in.m < t && t <= 22 * ms_in.h)
+                                return rnd(t/ms_in.h) + ' hours ago';
+                            else 
+                                if(45 * ms_in.m < t && t <= 90 * ms_in.m)
+                                    return 'an hour ago';
+                                else 
+                                    if(90 * ms_in.s < t && t <= 45 * ms_in.m)
+                                        return rnd(t/ms_in.m) + ' minutes ago';
+                                    else 
+                                        if(45 * ms_in.s < t && t <= 90 * ms_in.s)
+                                            return 'a minute ago';
+                                        else
+                                            return 'a few seconds ago';
 }
 
 
@@ -514,20 +544,20 @@ function getCommonDirectoryPath(pathes) {
  */
 function getMatrixProduct(m1, m2) {
     let n = m1.length, m = m2[0].length;
-    let res = new Array(n);
+    let ans = new Array(n);
     for (let i=0; i < n; i++) 
     {
-        res[i]=new Array(m);
+        ans[i]=new Array(m);
     }
     for (let i = 0; i < m; i++)
         for (let j = 0; j < n; j++)
-            res[i][j]=0;
+            ans[i][j]=0;
 
     for(let i = 0; i < n; i++)
         for(let j = 0; j < m; j++)
             for(let k = 0; k < m1[0].length; k++)
-                res[i][j] += m1[i][k] * m2[k][j];
-    return res;
+                ans[i][j] += m1[i][k] * m2[k][j];
+    return ans;
 }
 
 
