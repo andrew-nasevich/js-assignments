@@ -23,8 +23,8 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-   throw new Error('Not implemented');
-}
+   return arr.indexOf(value);
+ }
 
 /**
  * Generates an array of odd numbers of the specified length
@@ -38,7 +38,12 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-   throw new Error('Not implemented');
+	let arr = new Array(len);
+	let i;
+	for(i = 0; i < len; i++){
+		arr[i] = (i + 1)*2 - 1;
+	}
+	return arr;
 }
 
 
@@ -54,7 +59,11 @@ function generateOdds(len) {
  *    [] => [] 
  */
 function doubleArray(arr) {
-   throw new Error('Not implemented');
+    arr.map(elem =>
+   {
+      return arr.push(elem);
+   });
+   return arr;
 }
 
 
@@ -70,7 +79,11 @@ function doubleArray(arr) {
  *    [] => [] 
  */
 function getArrayOfPositives(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(elem =>
+   {
+      if (elem > 0)
+        return elem;
+   });
 }
 
 /**
@@ -85,7 +98,11 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(elem =>
+   {
+      if (typeof(elem) == 'string')
+          return elem;
+   })
 }
 
 /**
@@ -102,8 +119,11 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-   throw new Error('Not implemented');
-}
+    return arr.filter(elem =>
+    {
+      if (Boolean(elem) != 0)
+        return elem;
+    });
 
 /**
  * Returns the array of useprcase strings from the specified array
@@ -116,7 +136,11 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-   throw new Error('Not implemented');
+   let i;
+   for(i = 0; i < arr.length; i++){
+   	arr[i] = arr[i].ToUpperCase();
+   }
+   return arr;
 }
 
 
@@ -131,7 +155,12 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-   throw new Error('Not implemented');
+   let resArr = new Array(arr.length);
+   let i;
+   for (i = 0; i < arr.length; i++){
+   	resArr[i] = arr[i].length;
+   }
+   return resArr;
 }
 
 /**
@@ -146,7 +175,7 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-   throw new Error('Not implemented');
+    return arr.splice(index, 0, item);
 }
 
 /**
@@ -160,7 +189,7 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-   throw new Error('Not implemented');
+   return arr.splice(0, n);
 }
 
 
@@ -175,7 +204,7 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-   throw new Error('Not implemented');
+   return arr.splice( -n);
 }
 
 
@@ -200,7 +229,14 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   throw new Error('Not implemented');
+      let arrStr = arr.map((elem, index) =>
+   {
+      if (index != arr.length-1)
+        return elem.join(',') + '\n';
+      else
+        return elem.join(',');
+   }).join('');
+   return arrStr;
 }
 
 /**
@@ -215,7 +251,11 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-   throw new Error('Not implemented');
+   	let i;
+ 	for( i = 0; i < arr.length; i++){
+ 		arr[i] = arr[i] * arr[i];
+   	}
+   	return arr;
 }
 
 
