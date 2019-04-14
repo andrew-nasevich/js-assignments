@@ -239,7 +239,7 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
         tempStr += a + ', ' + b + tempEndStr;
     }
     return tempStr;
-
+}
 
 /**
  * Reverse the specified string (put all chars in reverse order)
