@@ -102,7 +102,7 @@ function getArrayOfStrings(arr) {
    {
       if (typeof(elem) == 'string')
           return elem;
-   })
+   });
 }
 
 /**
@@ -124,7 +124,7 @@ function removeFalsyValues(arr) {
       if (Boolean(elem) != 0)
         return elem;
     });
-
+}
 /**
  * Returns the array of useprcase strings from the specified array
  * 
