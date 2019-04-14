@@ -315,15 +315,15 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   let myArr = [];
-   let helpArr = [];
-   arr.map((elem, index) =>
-   {
-      helpArr.length = index+1;
-      helpArr.fill(elem);
-      myArr.concat(helpArr);
-   });
-   return myArr;
+	   let myArr = [];
+	   let helpArr = [];
+	   arr.map((elem, index) =>
+	   {
+	      helpArr.length = index+1;
+	      helpArr.fill(elem);
+	      return Array.prototype.push.apply(myArr, helpArr);
+	   });
+	   return myArr;
 }
 
 
@@ -341,7 +341,7 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-    return arr.reverse().filter((elem, index) =>
+     return arr.reverse().filter((elem, index) =>
     {
         if (index < 3)
             return elem;
@@ -562,12 +562,12 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-   let arr = Array(end - start + 1);
-   let num = start;
-   return arr.map(elem =>
-   	{
-   		return elem = start++;
-   	});
+   let arr = new Array(end - start + 1);
+   arr.fill(start);
+   return arr.map((elem, index) =>
+    {
+       return elem = index + start;
+    });
 }
 
 /**
@@ -588,8 +588,9 @@ function distinct(arr) {
    	{
    		if (resArr.indexOf(elem) == -1)
    			resArr.push(elem);
+   		return resArr;
   	 });
-  	 alert(resArr);
+  	 return resArr;
 }
 
 /**
