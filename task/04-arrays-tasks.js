@@ -363,13 +363,13 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   let num = 0;
+   let sum = 0;
    arr.map(elem =>
-   	{
-   		if (isNumeric(elem) && elem > 0)
-   			return num++;
-   	});
-   return num;
+    {
+       if (typeof(elem) == 'number' && elem > 0)
+           return sum++;
+    });
+   return sum;
 }
  
 /** 
