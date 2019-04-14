@@ -364,10 +364,10 @@ function get3TopItems(arr) {
  */
 function getPositivesCount(arr) {
    let num = 0;
-   arr.map((elem) =>
+   arr.map(elem =>
    	{
    		if (isNumeric(elem) && elem > 0)
-   			num++;
+   			return num++;
    	});
    return num;
 }
